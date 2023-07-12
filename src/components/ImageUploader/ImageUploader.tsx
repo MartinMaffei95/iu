@@ -3,12 +3,20 @@ import ImageToRender from './ImageToRender';
 import { FaImages } from 'react-icons/fa';
 import useImageUploader from '../../hooks/useImageUploader';
 import { ImageUploaderConfig } from '../../interfaces';
-const ImageUploader: FC<ImageUploaderConfig> = ({
-  setFieldValue,
-  dragDropText,
-  dragDropClassName,
-  ImageElementClassName,
-  imagesContainerClassName,
+
+type Props = {
+  config?: ImageUploaderConfig;
+};
+const ImageUploader: FC<Props> = ({
+  config: {
+    setFieldValue,
+    dragDropText,
+    dragDropClassName,
+    dragDropIcon,
+    dragDropStyle,
+    ImageElementClassName,
+    imagesContainerClassName,
+  } = {},
 }) => {
   const {
     images,
@@ -39,6 +47,7 @@ const ImageUploader: FC<ImageUploaderConfig> = ({
 
       <div className="flex justify-center items-center p-12">
         <div
+          style={dragDropStyle}
           className={`w-full h-64  p-4 border-neutral-800  border-dashed rounded-lg flex flex-col items-center justify-center gap-8
           
           ${dragging ? 'bg-neutral-400' : 'bg-neutral-300'}
@@ -54,8 +63,8 @@ const ImageUploader: FC<ImageUploaderConfig> = ({
           }}
           onDrop={handleDrop}
         >
-          <FaImages className="text-6xl" />
-          <div>
+          {dragDropIcon && dragDropIcon}
+          <div className="flex flex-col gap-2 ">
             <span>{dragDropText}</span>
             <div>
               <button

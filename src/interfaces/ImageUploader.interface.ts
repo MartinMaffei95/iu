@@ -1,4 +1,4 @@
-import { CSSProperties, DragEvent } from 'react';
+import { CSSProperties, DragEvent, ReactNode } from 'react';
 
 interface DragDropActions {
   onDragOver?: (event: DragEvent<HTMLDivElement>) => any;
@@ -10,6 +10,7 @@ interface DragDropZone {
   dragDropText?: string;
   dragDropClassName?: string;
   dragDropStyle?: CSSProperties;
+  dragDropIcon?: ReactNode;
 }
 
 interface ImagesContainer {
