@@ -1,8 +1,7 @@
 import { useRef, FC } from 'react';
 import ImageToRender from './ImageToRender';
-import { FaImages } from 'react-icons/fa';
-import useImageUploader from '../../hooks/useImageUploader';
-import { ImageUploaderConfig } from '../../interfaces';
+import useImageUploader from '../hooks/useImageUploader';
+import { ImageUploaderConfig } from '../interfaces';
 
 type Props = {
   config?: ImageUploaderConfig;

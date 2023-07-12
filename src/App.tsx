@@ -1,37 +1,22 @@
-import ImageUploader from './components/ImageUploader/ImageUploader';
-import { useState } from 'react';
-import { Image } from './interfaces';
-import { FaImages } from 'react-icons/fa';
+import HighLightsExample from './Examples/HighLightsExample';
+import ImagesUplaoderExample from './Examples/ImagesUplaoderExample';
 function App() {
-  const [values, setValues] = useState<{ [name: string]: Image[] }>();
-  const setFieldValue = (name: string, value: any) => {
-    setValues((state) => ({
-      ...state,
-      [name]: value,
-    }));
-  };
   return (
-    <div>
-      <ImageUploader
-        config={{
-          setFieldValue,
-          dragDropText: 'Drop your images in there. Or...',
-          dragDropClassName: 'text-center  ',
-          dragDropStyle: {
-            backgroundImage: `
-            url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23888888FF' stroke-width='5' stroke-dasharray='30%2c 30' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")
-            `,
-          },
-          dragDropIcon: <FaImages className="text-6xl text-red-500" />,
-        }}
-      />
-
-      <div>
-        Images value:
-        {values?.imagenes?.map((image, i) => (
-          <p key={i}>{image.src}</p>
-        ))}
-      </div>
+    <div className="min-h-screen w-screen bg-neutral-200 [&>section]:p-4">
+      <section className=" bg-blue-300 ">
+        <h2 className="font-semibold text-xl">Images Uploader</h2>
+        <p>
+          Simple and configurable component for upload and display images. Take
+          the files and trasnform in base64. Use the setFieldValue for recieve
+          the images. That is a object with name,src,id
+        </p>
+        <ImagesUplaoderExample />
+      </section>
+      <section className="bg-neutral-600 text-neutral-100 ">
+        <h2 className="font-semibold text-xl">HighLight</h2>
+        <p>Higlight your text simply</p>
+        <HighLightsExample />
+      </section>
     </div>
   );
 }

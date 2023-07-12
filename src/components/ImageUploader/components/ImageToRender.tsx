@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Image } from '../../interfaces';
+import { Image } from '../interfaces';
 
 type Props = {
   image: Image;
